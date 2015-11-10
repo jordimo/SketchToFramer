@@ -1,0 +1,19 @@
+{
+  "name": "sketch2framer",
+  "version": "1.0.0",
+  "description": "Script to convert Sketch files to JSON and PNG files usable on Framer",
+  "main": "s2f.js",
+  "dependencies": {
+    "fs": "0.0.2",
+    "jsonpath": "^0.2.0",
+    "sketchjs": "^0.1.0",
+    "xml2js": "^0.4.15",
+    "yargs": "^3.29.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
