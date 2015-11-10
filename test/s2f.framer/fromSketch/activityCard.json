@@ -271,7 +271,7 @@
 						"attr": {
 							"id": "txt_body_copy",
 							"sketch:type": "MSLayerGroup",
-							"transform": "translate(60.000000, 365.000000)",
+							"transform": "translate(60.000000, 372.000000)",
 							"font-weight": "normal",
 							"font-family": "Helvetica Neue",
 							"line-spacing": "36",
@@ -282,7 +282,7 @@
 							"width": 624,
 							"height": 75,
 							"x": 60,
-							"y": 365
+							"y": 372
 						},
 						"children": [
 							{

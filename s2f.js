@@ -3,7 +3,7 @@
 //
 //
 
-var sketch = require('sketchjs');
+var sketch = require('sketchjs_with_sketchtool3.4');
 var child_process = require('child_process');
 var fs = require('fs');
 var xml2js = require('xml2js');

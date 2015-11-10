@@ -6,13 +6,16 @@
   "dependencies": {
     "fs": "0.0.2",
     "jsonpath": "^0.2.0",
-    "sketchjs": "^0.1.0",
+    "sketchjs_with_sketchtool3.4": "^0.1.0",
     "xml2js": "^0.4.15",
     "yargs": "^3.29.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-shell": "^0.5.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-exec": "^2.1.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5"
   },
   "scripts": {
