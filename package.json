@@ -10,7 +10,11 @@
     "xml2js": "^0.4.15",
     "yargs": "^3.29.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-shell": "^0.5.1",
+    "gulp-watch": "^4.3.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
