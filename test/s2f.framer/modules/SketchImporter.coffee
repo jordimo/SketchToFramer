@@ -123,6 +123,7 @@ exports.SketchImporter =
     l.type = group.type
 
 
+
     if group.svgContent
 
 
@@ -153,7 +154,7 @@ exports.SketchImporter =
         imageSrc = imageSrc.substring(imageSrc.indexOf('framer')+7, imageSrc.length)
 
       lh = "<img src='#{imageSrc}' width='#{group.image.frame.width}' height='#{group.image.frame.height}'></img>"
-      
+
       l.html = lh
 
 
@@ -199,6 +200,55 @@ exports.SketchImporter =
 
     if group.mask
       @applyMaskToLayer group.mask, l
+
+
+    # apply FX
+    l.opacity = group.fx.opacity.value
+
+    if group.fx.colorControls
+      # l.brightness += 10000 * group.fx.colorControls.brightness
+      l.contrast = Utils.modulate( group.fx.colorControls.contrast, [0, 4], [0, 400])
+      l.hueRotate = Utils.modulate(group.fx.colorControls.hue, [-3.141592653589793, 3.141592653589793], [-180, 180])
+      l.saturate = Utils.modulate( group.fx.colorControls.saturation, [0, 2], [0, 100])
+
+    if group.fx.shadows
+      cssShadow = ''
+      for s in group.fx.shadows
+        switch s.type
+          when 'box-shadow'
+            l.shadowX     = s.offX
+            l.shadowY     = s.offY
+            l.shadowBlur  = s.blurRadius
+            l.shadowSpread = s.spread
+            l.shadowColor = s.color
+
+          when 'text-shadow'
+            cssShadow += "#{s.offX}px #{s.offY}px #{s.blurRadius}px #{s.color},"
+
+      if cssShadow.length > 0
+        cssShadow = cssShadow.slice(0, -1)
+
+        l.style =
+          "text-shadow" : cssShadow
+
+    if group.fx.fills && !group.svgContent
+
+      for f in group.fx.fills
+        l.style =
+          "background-color" : f.color
+
+
+    if group.fx.borders
+
+      for b in group.fx.borders
+        l.borderWidth = b.thickness
+        l.borderColor = b.color
+        l.borderRadius = b.radius+"px"
+
+
+        print b
+
+
 
     children = group.children || []
 

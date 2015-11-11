@@ -299,7 +299,6 @@ function parseChildrenNodes(arrObj, pater)
 
         if (!pater.svgContent) pater.svgContent = [];
         pater.svgContent.push(svgContent)
-        // INSERT SVG CONTENT AS ATTR IN PARENT OBJ
 
         obj = null
 
@@ -329,8 +328,15 @@ function parseChildrenNodes(arrObj, pater)
       obj.mask = parseMaskForElement(data)
     }
 
+
+
     if (data.children) {
       obj.children = parseChildrenNodes(data.children, obj);
+    }
+
+    if (obj)
+    {
+      obj.fx = getSpecialFiltersFromLayer(data, obj.type)
     }
 
     if (obj) children.push(obj)
@@ -338,6 +344,159 @@ function parseChildrenNodes(arrObj, pater)
 
   return children;
 }
+
+
+function getSpecialFiltersFromLayer(data, layerType)
+{
+  var dId = data.attr.id
+  if (dId == undefined) return null;
+
+  dId = desanitize(dId)
+
+  var fx = {}
+
+  var jsonContentRoot = ORIGINAL_JSON.pages['<items>'][0].layers['<items>'][0];
+  var query = "$..*[?(@.name=='"+dId+"')]"
+  var res = JSONPath.query(ORIGINAL_JSON, query)[0];
+
+  // borderOptions: [?]
+  // contextSettings [x]
+  // blur [x]
+  // reflection
+  // miterLimit
+  // colorControls []
+  // fills [?]
+  // borders [x]
+  // innerShadows [x]
+  // shadows [x]
+  // blur [X]
+  var tmpInfo;
+
+
+  // console.log(res.style);
+
+  if (res.style.fills['<items>'].length>0) {
+    var fills = []
+    tmpInfo = res.style.fills['<items>']
+    for (var sh in tmpInfo)
+    {
+      if (!tmpInfo[sh].isEnabled) continue;
+
+      var fillObj = {
+        color : tmpInfo[sh].color.value
+      }
+
+      fills.push(fillObj);
+    }
+    fx['fills'] = fills
+  };
+
+
+  // obj
+  if (res.style.colorControls.isEnabled)
+  {
+    tmpInfo = res.style.colorControls;
+    var colorObj = {
+      brightness  : tmpInfo.brightness,
+      saturation  : tmpInfo.saturation,
+      contrast    : tmpInfo.contrast,
+      hue         : tmpInfo.hue
+    }
+
+    fx['colorControls'] = colorObj
+  }
+   // 0...1
+  fx['opacity'] = {
+    value : res.style.contextSettings.opacity
+  }
+
+  // 0...n
+  fx['blendMode'] = {
+    value : res.style.contextSettings.blendMode
+  }
+
+  if (res.style.blur.isEnabled)
+  {
+    fx['blur'] = {
+      value : res.style.blur.radius
+    }
+  }
+
+
+  if (res.style.shadows['<items>'].length >0)
+  {
+    var shadows = []
+    tmpInfo = res.style.shadows['<items>']
+    for (var sh in tmpInfo)
+    {
+      if (!tmpInfo[sh].isEnabled) continue;
+
+      var sType = (layerType == 'text')? 'text-shadow' : 'box-shadow';
+      var shadow = {
+        color : tmpInfo[sh].color.value,
+        offX : tmpInfo[sh].offsetX,
+        offY : tmpInfo[sh].offsetY,
+        blurRadius : tmpInfo[sh].blurRadius,
+        spread  : tmpInfo[sh].spread,
+        type : sType,
+        css : "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+      }
+      shadows.push(shadow)
+    }
+    fx['shadows'] = shadows;
+  }
+
+
+  if (res.style.innerShadows['<items>'].length > 0)
+  {
+      var shadows = []
+      tmpInfo = res.style.shadows['<items>']
+      for (var sh in tmpInfo)
+      {
+          if (!tmpInfo[sh].isEnabled) continue;
+
+          var sType = (layerType == 'text')? 'text-shadow' : 'box-shadow';
+          var shadow = {
+              color : tmpInfo.color,
+              offX : tmpInfo.offsetX,
+              offY : tmpInfo.offsetY,
+              blurRadius : tmpInfo.blurRadius,
+              spread  : tmpInfo.spread,
+              type : sType,
+              css : "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+          }
+          shadows.push(shadow)
+      }
+
+      fx['innerShadows'] = shadows;
+  }
+
+
+  if (res.style.borders['<items>'].length > 0)
+  {
+      var borders = []
+      tmpInfo = res.style.borders['<items>'];
+
+      for (var bi in tmpInfo)
+      {
+        if (!tmpInfo[bi].isEnabled) continue;
+
+        var borderObj = {
+          thickness : tmpInfo[bi].thickness
+          ,color     : tmpInfo[bi].color.value
+          ,position       : tmpInfo[bi].position
+          ,radius     : data.attr.rx
+        }
+        
+        borders.push(borderObj)
+      }
+      fx['borders'] = borders
+  }
+
+  return fx;
+}
+
+
 
 function parseTextInfoFromJSON(nodeId, artboardId) {
 

@@ -11,12 +11,28 @@
 				},
 				"backgroundColor": "#FFFFFF",
 				"defs": {
-					"path-1": {
-						"id": "path-1",
-						"cx": "113.5",
-						"cy": "113.5",
-						"r": "113.5",
-						"type": "circle"
+					"filter-1": {
+						"x": "-50%",
+						"y": "-50%",
+						"width": "200%",
+						"height": "200%",
+						"filterUnits": "objectBoundingBox",
+						"id": "filter-1",
+						"type": "filter"
+					},
+					"filter-2": {
+						"x": "-50%",
+						"y": "-50%",
+						"width": "200%",
+						"height": "200%",
+						"filterUnits": "objectBoundingBox",
+						"id": "filter-2",
+						"type": "filter"
+					},
+					"path-3": {
+						"id": "path-3",
+						"points": "121 181.5 49.8779845 218.891056 63.4610808 139.695528 5.92216153 83.6089437 85.4389922 72.0544718 121 0 156.561008 72.0544718 236.077838 83.6089437 178.538919 139.695528 192.122016 218.891056 ",
+						"type": "polygon"
 					}
 				},
 				"children": [
@@ -44,7 +60,15 @@
 								"type": "path"
 							}
 						],
-						"children": []
+						"children": [],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "txt_title",
@@ -52,23 +76,24 @@
 						"attr": {
 							"id": "txt_title",
 							"sketch:type": "MSLayerGroup",
-							"transform": "translate(60.000000, 282.000000)",
-							"font-size": "47.7280453",
+							"transform": "translate(60.000000, 283.000000)",
+							"filter": "url(#filter-1)",
+							"font-weight": "normal",
 							"font-family": "Helvetica Neue",
-							"fill": "#3D424E",
-							"font-weight": "normal"
+							"fill": "white",
+							"font-size": "48"
 						},
 						"frame": {
 							"width": 633,
-							"height": 57,
+							"height": 58,
 							"x": 60,
-							"y": 282
+							"y": 283
 						},
 						"children": [
 							{
 								"frame": {
 									"width": 633,
-									"height": 56.33637944294441,
+									"height": 57.343994140625,
 									"x": 0,
 									"y": 0.3909348441925431
 								},
@@ -80,15 +105,42 @@
 										"lineSpacing": 0,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 47.72804532577904,
+										"fontSize": 48,
 										"startIndex": 0,
 										"text": "Save&nbsp;Rock&nbsp;Creek&nbsp;Park&nbsp;Trees"
 									}
 								],
 								"type": "text",
-								"id": "Save-Rock-Creek-Park"
+								"id": "Save-Rock-Creek-Park",
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									},
+									"shadows": [
+										{
+											"color": "rgba(255,0,0,0.76)",
+											"offX": 0,
+											"offY": 2,
+											"blurRadius": 4,
+											"spread": 0,
+											"type": "text-shadow",
+											"css": "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+										}
+									]
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "txt_agency",
@@ -96,63 +148,80 @@
 						"attr": {
 							"id": "txt_agency",
 							"sketch:type": "MSLayerGroup",
-							"transform": "translate(60.000000, 463.000000)",
-							"font-size": "27.8413598",
+							"transform": "translate(60.000000, 464.000000)",
+							"font-weight": "normal",
 							"font-family": "Helvetica Neue",
 							"line-spacing": "36",
-							"font-weight": "normal"
+							"fill": "#4A4A4A",
+							"font-size": "28"
 						},
 						"frame": {
 							"width": 650,
-							"height": 75,
+							"height": 74,
 							"x": 60,
-							"y": 463
+							"y": 464
 						},
 						"children": [
 							{
 								"frame": {
 									"width": 650,
-									"height": 73.80759315382657,
+									"height": 73.81219482421875,
 									"x": 0,
-									"y": 0.3597733711048932
+									"y": 0
 								},
 								"allText": "with&nbsp;Rock&nbsp;Creek&nbsp;Conservancy&nbsp;Inc\n",
 								"parts": [
 									{
-										"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+										"color": "rgba(0.290222,0.290175,0.290237,1.000000)",
 										"alignment": 0,
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 27.8413597733711,
+										"fontSize": 28,
 										"startIndex": 0,
 										"text": "with&nbsp;"
 									},
 									{
-										"color": "rgba(0.816204,0.007513,0.106696,1.000000)",
+										"color": "rgba(0.290222,0.290175,0.290237,1.000000)",
 										"alignment": 0,
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue Bold",
-										"fontSize": 27.8413597733711,
+										"fontSize": 28,
 										"startIndex": 5,
 										"text": "Rock&nbsp;Creek"
 									},
 									{
-										"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+										"color": "rgba(0.290222,0.290175,0.290237,1.000000)",
 										"alignment": 0,
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 27.8413597733711,
+										"fontSize": 28,
 										"startIndex": 15,
 										"text": "&nbsp;Conservancy&nbsp;Inc\n"
 									}
 								],
 								"type": "text",
-								"id": "with-Rock-Creek-Cons"
+								"id": "with-Rock-Creek-Cons",
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "mod_header",
@@ -178,92 +247,131 @@
 									"x": 0,
 									"y": 0
 								},
-								"backgroundColor": "#E4E4E4"
+								"backgroundColor": "#9B9B9B",
+								"fx": {
+									"fills": [
+										{
+											"color": "#9B9B9B"
+										}
+									],
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									},
+									"shadows": [
+										{
+											"color": "rgba(255,0,0,0.50)",
+											"offX": 0,
+											"offY": 15,
+											"blurRadius": 10,
+											"spread": 12,
+											"type": "box-shadow",
+											"css": "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+										}
+									],
+									"borders": [
+										{
+											"thickness": 6,
+											"color": "#000000",
+											"position": 1,
+											"radius": "100"
+										}
+									]
+								}
 							},
 							{
-								"frame": {
-									"width": 548,
-									"height": 30.32464478576487,
-									"x": 60,
-									"y": 201.8555240793203
-								},
-								"allText": "Community&nbsp;⋅&nbsp;Environment",
-								"parts": [
-									{
-										"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
-										"alignment": 0,
-										"lineSpacing": 28,
-										"fontFamily": "Helvetica Neue",
-										"fontName": "Helvetica Neue",
-										"fontSize": 27.84135977337111,
-										"startIndex": 0,
-										"text": "Community&nbsp;"
-									},
-									{
-										"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
-										"alignment": 0,
-										"lineSpacing": 28,
-										"fontFamily": "Apple Symbols",
-										"fontName": "Apple Symbols",
-										"fontSize": 27.84135977337111,
-										"startIndex": 10,
-										"text": "⋅"
-									},
-									{
-										"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
-										"alignment": 0,
-										"lineSpacing": 28,
-										"fontFamily": "Helvetica Neue",
-										"fontName": "Helvetica Neue",
-										"fontSize": 27.84135977337111,
-										"startIndex": 11,
-										"text": "&nbsp;Environment"
-									}
-								],
-								"type": "text",
-								"id": "txt_category"
-							},
-							{
-								"id": "header_img",
+								"id": "txt_header",
 								"type": "layer",
 								"attr": {
-									"id": "header_img",
-									"transform": "translate(470.000000, 18.000000)"
+									"id": "txt_header",
+									"transform": "translate(59.000000, 201.000000)",
+									"font-weight": "normal",
+									"font-family": "Helvetica Neue",
+									"line-spacing": "28.0510949",
+									"fill": "#3D424E",
+									"font-size": "28.0510949",
+									"sketch:type": "MSTextLayer"
 								},
 								"frame": {
-									"width": 227,
-									"height": 227,
-									"x": 470,
-									"y": 18
+									"width": 549,
+									"height": 30,
+									"x": 59,
+									"y": 201
 								},
 								"children": [
 									{
-										"id": "Fall_Creek_2",
 										"frame": {
-											"width": "344",
-											"height": "258",
-											"x": "-35",
-											"y": "-16"
+											"width": 549,
+											"height": 30,
+											"x": 0,
+											"y": 0
 										},
-										"type": "image",
-										"image": {
-											"frame": {
-												"width": 344,
-												"height": 258,
-												"x": -35,
-												"y": -16
+										"allText": "Community&nbsp;⋅&nbsp;Environment",
+										"parts": [
+											{
+												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 28.05109489051095,
+												"fontFamily": "Helvetica Neue",
+												"fontName": "Helvetica Neue",
+												"fontSize": 28.05109489051095,
+												"startIndex": 0,
+												"text": "Community&nbsp;"
 											},
-											"id": "Fall_Creek_2",
-											"src": "test/s2f.framer/fromSketch/Fall_Creek_2.png"
-										},
-										"mask": {
-											"id": "mask-2",
-											"use": "path-1"
+											{
+												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 28.05109489051095,
+												"fontFamily": "Apple Symbols",
+												"fontName": "Apple Symbols",
+												"fontSize": 28.05109489051095,
+												"startIndex": 10,
+												"text": "⋅"
+											},
+											{
+												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 28.05109489051095,
+												"fontFamily": "Helvetica Neue",
+												"fontName": "Helvetica Neue",
+												"fontSize": 28.05109489051095,
+												"startIndex": 11,
+												"text": "&nbsp;Environment"
+											}
+										],
+										"type": "text",
+										"id": "Community-⋅-Environm",
+										"fx": {
+											"fills": [],
+											"opacity": {
+												"value": 1
+											},
+											"blendMode": {
+												"value": 0
+											}
 										}
 									}
-								]
+								],
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "txt_body_copy",
@@ -276,7 +384,7 @@
 							"font-family": "Helvetica Neue",
 							"line-spacing": "36",
 							"fill": "#3D424E",
-							"font-size": "31.8186969"
+							"font-size": "32"
 						},
 						"frame": {
 							"width": 624,
@@ -288,7 +396,7 @@
 							{
 								"frame": {
 									"width": 624,
-									"height": 73.78183925725921,
+									"height": 73.7919921875,
 									"x": 0,
 									"y": 0.9150141643058305
 								},
@@ -300,15 +408,31 @@
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 31.81869688385269,
+										"fontSize": 32,
 										"startIndex": 0,
 										"text": "Save&nbsp;park&nbsp;trees&nbsp;from&nbsp;the&nbsp;chokehold&nbsp;of&nbsp;English&nbsp;ivy"
 									}
 								],
 								"type": "text",
-								"id": "Save-park-trees-from"
+								"id": "Save-park-trees-from",
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "mod_when",
@@ -328,7 +452,7 @@
 							{
 								"frame": {
 									"width": 316,
-									"height": 36.7795546750509,
+									"height": 36.78399658203125,
 									"x": 74,
 									"y": 0.9745042492913853
 								},
@@ -340,13 +464,21 @@
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 27.8413597733711,
+										"fontSize": 28,
 										"startIndex": 0,
 										"text": "Today,&nbsp;in&nbsp;3&nbsp;hours"
 									}
 								],
 								"type": "text",
-								"id": "txt_time"
+								"id": "Today,-in-3-hours",
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							},
 							{
 								"id": "calendar_icon",
@@ -359,7 +491,7 @@
 								},
 								"frame": {
 									"width": 32,
-									"height": 29.37110481586402,
+									"height": 30,
 									"x": 0,
 									"y": 0.9745042492913853
 								},
@@ -370,9 +502,30 @@
 										"type": "path"
 									}
 								],
-								"children": []
+								"children": [],
+								"fx": {
+									"fills": [
+										{
+											"color": "#000000"
+										}
+									],
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					},
 					{
 						"id": "mod_peopleGoing",
@@ -403,7 +556,7 @@
 									"width": 706,
 									"height": 53.69405099150142,
 									"x": 60,
-									"y": 34.44192634560886
+									"y": 34
 								},
 								"allText": "151&nbsp;people&nbsp;volunteered&nbsp;for&nbsp;this&nbsp;last&nbsp;year.",
 								"parts": [
@@ -413,15 +566,88 @@
 										"lineSpacing": 36,
 										"fontFamily": "Helvetica Neue",
 										"fontName": "Helvetica Neue",
-										"fontSize": 27.84135977337111,
+										"fontSize": 28,
 										"startIndex": 0,
 										"text": "151&nbsp;people&nbsp;volunteered&nbsp;for&nbsp;this&nbsp;last&nbsp;year."
 									}
 								],
 								"type": "text",
-								"id": "txt_peoplegoing"
+								"id": "151-people-volunteer",
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
 							}
-						]
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
+					},
+					{
+						"id": "Mask + Fall_Creek_2",
+						"type": "layer",
+						"attr": {
+							"id": "Mask-+-Fall_Creek_2",
+							"sketch:type": "MSLayerGroup",
+							"transform": "translate(454.000000, 9.000000)"
+						},
+						"frame": {
+							"width": 242,
+							"height": 242,
+							"x": 454,
+							"y": 9
+						},
+						"children": [
+							{
+								"id": "Fall_Creek_2",
+								"frame": {
+									"width": "350",
+									"height": "262",
+									"x": "-54",
+									"y": "-10"
+								},
+								"type": "image",
+								"image": {
+									"frame": {
+										"width": 350,
+										"height": 262,
+										"x": -54,
+										"y": -10
+									},
+									"id": "Fall_Creek_2",
+									"src": "test/s2f.framer/fromSketch/Fall_Creek_2.png"
+								},
+								"mask": {
+									"id": "mask-4",
+									"use": "path-3"
+								},
+								"fx": {
+									"opacity": {
+										"value": 1
+									},
+									"blendMode": {
+										"value": 0
+									}
+								}
+							}
+						],
+						"fx": {
+							"opacity": {
+								"value": 1
+							},
+							"blendMode": {
+								"value": 0
+							}
+						}
 					}
 				]
 			}
