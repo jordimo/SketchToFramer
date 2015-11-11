@@ -79,11 +79,19 @@ class exports.ActivityCard extends Layer
 
 ```
 
+#### Supports: ####
+* masks
+* shadows
+* font styles (only system fonts for now and limited family options, bascially only bold)
+* fills
+* SVG shapes will be rendered as SVG objects
+* multiple styles on text 
 
 
 
 ## Watch outs: ##
 For Sketch:
+  * group everything you can. It makes it less prone to errors when parsing
   * layers/artboards/pages can't have '-' in their name
   * avoid naming layers as Framer properties ('image', 'x', 'y', 'backgroundColor', etc)
 
