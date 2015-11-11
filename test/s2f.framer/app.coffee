@@ -2,11 +2,24 @@
 {TopNav} = require 'TopNav'
 {SignIn} = require 'SignIn'
 
-tn = new TopNav
 
+mainScroll = new ScrollComponent
+	width:  Screen.width
+	height: Screen.height
+	
+tn = new TopNav
+	superLayer : mainScroll.content
+	
 
 aC = new ActivityCard
-	y : tn.height
+	superLayer : mainScroll.content
+	y : tn.maxY
 
 	
-# sI = new SignIn
+sI = new SignIn
+	superLayer : mainScroll.content
+	y : aC.maxY
+	
+mainScroll.updateContent()
+mainScroll.speedX = 0
+	

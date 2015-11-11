@@ -85,7 +85,7 @@ class exports.ActivityCard extends Layer
 ## Watch outs: ##
 For Sketch:
   * layers/artboards/pages can't have '-' in their name
-
+  * avoid naming layers as Framer properties ('image', 'x', 'y', 'backgroundColor', etc)
 
 ## To Do: ##
 

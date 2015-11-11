@@ -424,13 +424,19 @@ function getSpecialFiltersFromLayer(data, layerType, paterId)
     fx['colorControls'] = colorObj
   }
    // 0...1
-  fx['opacity'] = {
-    value : res.style.contextSettings.opacity
-  }
+   if (res.style.contextSettings.opacity!=1)
+   {
+     fx['opacity'] = {
+       value : res.style.contextSettings.opacity
+     }
+   }
 
   // 0...n
-  fx['blendMode'] = {
-    value : res.style.contextSettings.blendMode
+  if (res.style.contextSettings.blendMode!=0)
+  {
+    fx['blendMode'] = {
+      value : res.style.contextSettings.blendMode
+    }
   }
 
   if (res.style.blur.isEnabled)

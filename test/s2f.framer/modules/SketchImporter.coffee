@@ -97,13 +97,8 @@ exports.SketchImporter =
       group.frame.x = 0
       group.frame.y = 0
 
-    # if group.type == 'text'
-    #   l = new sketchTextLayer
-    # else
+
     l = new Layer
-
-
-
     l.superLayer  = parent
     l.name        = group.id
     l.width       = Number group.frame.width
@@ -114,8 +109,8 @@ exports.SketchImporter =
     l.backgroundColor = group.backgroundColor || 'transparent'
 
 
-    l.on Events.Click, ->
-       print @name + " :" + @html
+    # l.on Events.Click, ->
+    #    print @name + " :" + @html
 
     parent[group.id] = l
 
@@ -147,6 +142,7 @@ exports.SketchImporter =
 
 
     if group.type == 'image'
+
       imageSrc = group.image.src
 
       if imageSrc.indexOf(".framer")>-1
@@ -164,14 +160,16 @@ exports.SketchImporter =
       ht = ""
       for p in group.parts
         mainAlignment = p.alignment
-        ht += "<span style='#{@convertTextObjToStyle p}'>"
+        ht += "<span style='#{@convertTextObjToStyle p} '>"
         ht += p.text.split("&nbsp;").join(" ")
         ht +="</span>"
 
       ht+= "</span>"
+
+
       mainAlignment = @ALIGNMENT[mainAlignment]
 
-      preHt = "<div style='text-align:#{mainAlignment}'>"
+      preHt = "<div style='text-align:#{mainAlignment}; white-space:pre-wrap;'>"
 
       ht = preHt + ht + '</div>'
 
@@ -204,12 +202,12 @@ exports.SketchImporter =
 
 
     # apply FX
-    l.opacity = group.fx.opacity.value
+    l.opacity = group.fx.opacity.value if group.fx.opacity
 
 
 
     if group.fx.colorControls
-      # l.brightness += 10000 * group.fx.colorControls.brightness
+      l.brightness += 10000 * group.fx.colorControls.brightness
       l.contrast = Utils.modulate( group.fx.colorControls.contrast, [0, 4], [0, 400])
       l.hueRotate = Utils.modulate(group.fx.colorControls.hue, [-3.141592653589793, 3.141592653589793], [-180, 180])
       l.saturate = Utils.modulate( group.fx.colorControls.saturation, [0, 2], [0, 100])

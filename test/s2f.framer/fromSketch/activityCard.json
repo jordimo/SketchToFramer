@@ -47,12 +47,6 @@
 									"color": "#FFFFFF"
 								}
 							],
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							},
 							"borders": []
 						}
 					},
@@ -97,24 +91,10 @@
 								],
 								"type": "text",
 								"id": "SpareHands",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "sh_glass",
@@ -140,14 +120,7 @@
 							}
 						],
 						"children": [],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "txt_options",
@@ -191,24 +164,10 @@
 								],
 								"type": "text",
 								"id": "Volunteer-----Storie",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "img_profile",
@@ -254,24 +213,11 @@
 										"saturation": 0,
 										"contrast": 1,
 										"hue": 0
-									},
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
 									}
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					}
 				]
 			},
@@ -284,7 +230,22 @@
 					"y": 0
 				},
 				"backgroundColor": "#FFFFFF",
-				"defs": null,
+				"defs": {
+					"filter-1": {
+						"x": "-50%",
+						"y": "-50%",
+						"width": "200%",
+						"height": "200%",
+						"filterUnits": "objectBoundingBox",
+						"id": "filter-1",
+						"type": "filter"
+					},
+					"path-2": {
+						"id": "path-2",
+						"points": "95 0 185.350369 65.6433855 150.839599 171.856614 39.160401 171.856614 4.64963095 65.6433855 ",
+						"type": "polygon"
+					}
+				},
 				"children": [
 					{
 						"id": "mod_info",
@@ -354,24 +315,10 @@
 										],
 										"type": "text",
 										"id": "Today,-in-3-hours-",
-										"fx": {
-											"opacity": {
-												"value": 1
-											},
-											"blendMode": {
-												"value": 0
-											}
-										}
+										"fx": {}
 									}
 								],
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "calendar_icon",
@@ -401,13 +348,7 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							},
 							{
@@ -416,12 +357,11 @@
 								"attr": {
 									"id": "txt_descr",
 									"transform": "translate(62.000000, 83.000000)",
-									"font-weight": "normal",
+									"font-size": "31.8186969",
 									"font-family": "Helvetica Neue",
 									"line-spacing": "36",
-									"fill": "#3D424E",
-									"font-size": "31.8186969",
-									"sketch:type": "MSTextLayer"
+									"sketch:type": "MSTextLayer",
+									"font-weight": "normal"
 								},
 								"frame": {
 									"width": 624,
@@ -440,36 +380,52 @@
 										"allText": "Save&nbsp;park&nbsp;trees&nbsp;from&nbsp;the&nbsp;chokehold&nbsp;of&nbsp;English&nbsp;ivy.",
 										"parts": [
 											{
-												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"color": "rgba(0.961711,0.650367,0.138542,1.000000)",
 												"alignment": 0,
 												"lineSpacing": 36,
 												"fontFamily": "Helvetica Neue",
 												"fontName": "Helvetica Neue",
 												"fontSize": 31.81869688385269,
 												"startIndex": 0,
-												"text": "Save&nbsp;park&nbsp;trees&nbsp;from&nbsp;the&nbsp;chokehold&nbsp;of&nbsp;English&nbsp;ivy."
+												"text": "Save"
+											},
+											{
+												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 36,
+												"fontFamily": "Helvetica Neue",
+												"fontName": "Helvetica Neue",
+												"fontSize": 31.81869688385269,
+												"startIndex": 4,
+												"text": "&nbsp;park&nbsp;"
+											},
+											{
+												"color": "rgba(0.255784,0.459616,0.019916,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 36,
+												"fontFamily": "Helvetica Neue",
+												"fontName": "Helvetica Neue",
+												"fontSize": 31.81869688385269,
+												"startIndex": 10,
+												"text": "trees"
+											},
+											{
+												"color": "rgba(0.239216,0.258824,0.305882,1.000000)",
+												"alignment": 0,
+												"lineSpacing": 36,
+												"fontFamily": "Helvetica Neue",
+												"fontName": "Helvetica Neue",
+												"fontSize": 31.81869688385269,
+												"startIndex": 15,
+												"text": "&nbsp;from&nbsp;the&nbsp;chokehold&nbsp;of&nbsp;English&nbsp;ivy."
 											}
 										],
 										"type": "text",
 										"id": "Save-park-trees-from",
-										"fx": {
-											"opacity": {
-												"value": 1
-											},
-											"blendMode": {
-												"value": 0
-											}
-										}
+										"fx": {}
 									}
 								],
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "txt_title",
@@ -477,11 +433,12 @@
 								"attr": {
 									"id": "txt_title",
 									"transform": "translate(62.000000, 0.000000)",
-									"font-size": "47.7280453",
+									"filter": "url(#filter-1)",
+									"font-weight": "normal",
 									"font-family": "Helvetica Neue",
-									"fill": "#3D424E",
+									"fill": "white",
 									"sketch:type": "MSTextLayer",
-									"font-weight": "normal"
+									"font-size": "47.7280453"
 								},
 								"frame": {
 									"width": 632,
@@ -513,23 +470,21 @@
 										"type": "text",
 										"id": "Save-Rock-Creek-Park",
 										"fx": {
-											"opacity": {
-												"value": 1
-											},
-											"blendMode": {
-												"value": 0
-											}
+											"shadows": [
+												{
+													"color": "#D0021B",
+													"offX": 0,
+													"offY": 2,
+													"blurRadius": 4,
+													"spread": 0,
+													"type": "text-shadow",
+													"css": "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+												}
+											]
 										}
 									}
 								],
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "txt_agency",
@@ -573,34 +528,13 @@
 										],
 										"type": "text",
 										"id": "with-Rock-Creek-Cons",
-										"fx": {
-											"opacity": {
-												"value": 1
-											},
-											"blendMode": {
-												"value": 0
-											}
-										}
+										"fx": {}
 									}
 								],
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "mod_peopleGoing",
@@ -632,13 +566,7 @@
 										{
 											"color": "#9B9B9B"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							},
 							{
@@ -663,23 +591,21 @@
 								],
 								"type": "text",
 								"id": "txt_peoplegoing",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							}
 						],
 						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
+							"shadows": [
+								{
+									"color": "rgba(0,0,0,0.50)",
+									"offX": 0,
+									"offY": -8,
+									"blurRadius": 13,
+									"spread": 0,
+									"type": "box-shadow",
+									"css": "text-shadow  : x y br color, x y br color |||| || box-shadow : x y br sp co inset"
+								}
+							]
 						}
 					},
 					{
@@ -711,13 +637,7 @@
 										{
 											"color": "#9B9B9B"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							},
 							{
@@ -762,52 +682,52 @@
 								],
 								"type": "text",
 								"id": "txt_category",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
+								"fx": {}
+							},
+							{
+								"id": "header_image",
+								"type": "layer",
+								"attr": {
+									"id": "header_image",
+									"transform": "translate(505.000000, 41.000000)"
+								},
+								"frame": {
+									"width": 190,
+									"height": 190,
+									"x": 505,
+									"y": 41
+								},
+								"children": [
+									{
+										"id": "Fall-Creek_2",
+										"frame": {
+											"width": "288",
+											"height": "216",
+											"x": "-73",
+											"y": "-18"
+										},
+										"type": "image",
+										"image": {
+											"frame": {
+												"width": 288,
+												"height": 216,
+												"x": -73,
+												"y": -18
+											},
+											"id": "Fall-Creek_2",
+											"src": "test/s2f.framer/fromSketch/Fall-Creek_2.png"
+										},
+										"mask": {
+											"id": "mask-3",
+											"use": "path-2"
+										},
+										"fx": {}
 									}
-								}
+								],
+								"fx": {}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
-					},
-					{
-						"id": "Fall-Creek_2",
-						"frame": {
-							"width": "288",
-							"height": "216",
-							"x": "432",
-							"y": "23"
-						},
-						"type": "image",
-						"image": {
-							"frame": {
-								"width": 288,
-								"height": 216,
-								"x": 432,
-								"y": 23
-							},
-							"id": "Fall-Creek_2",
-							"src": "test/s2f.framer/fromSketch/Fall-Creek_2.png"
-						},
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					}
 				]
 			},
@@ -848,12 +768,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -915,14 +829,7 @@
 										],
 										"type": "text",
 										"id": "Homeless-&-Housing",
-										"fx": {
-											"opacity": {
-												"value": 1
-											},
-											"blendMode": {
-												"value": 0
-											}
-										}
+										"fx": {}
 									}
 								],
 								"fx": {
@@ -930,24 +837,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_healthcare",
@@ -975,12 +869,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1012,14 +900,7 @@
 								],
 								"type": "text",
 								"id": "Health-&-Medicine",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 6",
@@ -1054,24 +935,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_education",
@@ -1099,12 +967,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1136,14 +998,7 @@
 								],
 								"type": "text",
 								"id": "Education-&-Literacy",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 7",
@@ -1178,24 +1033,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_crisis",
@@ -1223,12 +1065,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1260,14 +1096,7 @@
 								],
 								"type": "text",
 								"id": "Crisis-Support",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 5",
@@ -1302,24 +1131,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_community",
@@ -1347,12 +1163,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1384,14 +1194,7 @@
 								],
 								"type": "text",
 								"id": "Community",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 4",
@@ -1426,24 +1229,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_children",
@@ -1471,12 +1261,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1508,14 +1292,7 @@
 								],
 								"type": "text",
 								"id": "Children-&-Youth",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 3",
@@ -1550,24 +1327,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_arts",
@@ -1595,12 +1359,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1632,14 +1390,7 @@
 								],
 								"type": "text",
 								"id": "Arts-&-Culture",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy 2",
@@ -1674,24 +1425,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "card_animals",
@@ -1719,12 +1457,6 @@
 								},
 								"fx": {
 									"fills": [],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									},
 									"borders": [
 										{
 											"thickness": 2,
@@ -1756,14 +1488,7 @@
 								],
 								"type": "text",
 								"id": "Animals",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							},
 							{
 								"id": "Group Copy",
@@ -1798,24 +1523,11 @@
 										{
 											"color": "#000000"
 										}
-									],
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
+									]
 								}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					},
 					{
 						"id": "txt_title",
@@ -1860,24 +1572,10 @@
 								],
 								"type": "text",
 								"id": "Pick-at-least-3-caus",
-								"fx": {
-									"opacity": {
-										"value": 1
-									},
-									"blendMode": {
-										"value": 0
-									}
-								}
+								"fx": {}
 							}
 						],
-						"fx": {
-							"opacity": {
-								"value": 1
-							},
-							"blendMode": {
-								"value": 0
-							}
-						}
+						"fx": {}
 					}
 				]
 			}
