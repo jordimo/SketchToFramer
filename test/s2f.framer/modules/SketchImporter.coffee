@@ -1,5 +1,3 @@
-{sketchTextLayer} = require 'sketchTextLayer'
-
 exports.SketchImporter =
 
   FILES_LOADED : []
@@ -77,6 +75,7 @@ exports.SketchImporter =
         thelayer.superLayer = tmpLayer.superLayer
         thelayer.name       = tmpLayer.name
         thelayer.frame      = tmpLayer.frame
+        thelayer.superLayer[thelayer.name] = thelayer
         tmpLayer.destroy()
 
     else
@@ -98,10 +97,10 @@ exports.SketchImporter =
       group.frame.x = 0
       group.frame.y = 0
 
-    if group.type == 'text'
-      l = new sketchTextLayer
-    else
-      l = new Layer
+    # if group.type == 'text'
+    #   l = new sketchTextLayer
+    # else
+    l = new Layer
 
 
 
@@ -115,8 +114,8 @@ exports.SketchImporter =
     l.backgroundColor = group.backgroundColor || 'transparent'
 
 
-    # l.on Events.Click, ->
-    #   print @name + " :" + @backgroundColor
+    l.on Events.Click, ->
+       print @name + " :" + @html
 
     parent[group.id] = l
 
@@ -202,14 +201,20 @@ exports.SketchImporter =
       @applyMaskToLayer group.mask, l
 
 
+
+
     # apply FX
     l.opacity = group.fx.opacity.value
+
+
 
     if group.fx.colorControls
       # l.brightness += 10000 * group.fx.colorControls.brightness
       l.contrast = Utils.modulate( group.fx.colorControls.contrast, [0, 4], [0, 400])
       l.hueRotate = Utils.modulate(group.fx.colorControls.hue, [-3.141592653589793, 3.141592653589793], [-180, 180])
       l.saturate = Utils.modulate( group.fx.colorControls.saturation, [0, 2], [0, 100])
+
+
 
     if group.fx.shadows
       cssShadow = ''
@@ -231,8 +236,10 @@ exports.SketchImporter =
         l.style =
           "text-shadow" : cssShadow
 
-    if group.fx.fills && !group.svgContent
 
+
+
+    if group.fx.fills && !group.svgContent
       for f in group.fx.fills
         l.style =
           "background-color" : f.color
@@ -244,11 +251,6 @@ exports.SketchImporter =
         l.borderWidth = b.thickness
         l.borderColor = b.color
         l.borderRadius = b.radius+"px"
-
-
-        print b
-
-
 
     children = group.children || []
 

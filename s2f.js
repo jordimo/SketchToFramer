@@ -15,7 +15,7 @@ var JSONPath = require('jsonpath')
 
 // VARIABLES
 
-var ORIGINAL_JSON = ORIGINAL_SVG = {};
+var ORIGINAL_JSON = ORIGINAL_SVG = CURRENT_ARTBOARD_JSON = {};
 var FILES_EXPORTED = IMAGES_TO_EXPORT = [];
 var EXPORT_FOLDER = CURRENT_ARTBOARD = '';
 var ARTBOARDS_TO_EXPORT = []
@@ -149,8 +149,22 @@ function readSVGFiles(files)
   startParse();
 }
 
+function startParse()
+{
+  var data = ORIGINAL_JSON;
+  var pages = data.pages['<items>'];
+  var outJSON = {}
+  outJSON.pages = {};
 
+  for (var p in pages)
+  {
+    var page = parsePage(pages[p])
+    var pageName = desanitize(pages[p].name);
+    outJSON.pages[pageName] = page;
+  }
 
+  saveAndCleanFiles(outJSON);
+}
 
 function saveAndCleanFiles(outJSON)
 {
@@ -170,32 +184,9 @@ function saveAndCleanFiles(outJSON)
     } else {
       console.log(EXPORT_FOLDER+outputFile)
     }
-
   })
 }
 
-function startParse()
-{
-
-  var data = ORIGINAL_JSON;
-
-  var pages = data.pages['<items>'];
-
-  var outJSON = {}
-
-  outJSON.pages = {};
-
-
-  for (var p in pages)
-  {
-    var page = parsePage(pages[p])
-    var pageName = pages[p].name.split(" ").join("-");
-    outJSON.pages[pageName] = page;
-  }
-
-  saveAndCleanFiles(outJSON);
-
-}
 
 
 function parsePage(pageData)
@@ -214,6 +205,7 @@ function parsePage(pageData)
      if (layers[l]['<class>']!='MSArtboardGroup') continue
 
      CURRENT_ARTBOARD = layers[l].name;
+     CURRENT_ARTBOARD_JSON = ORIGINAL_JSON.pages['<items>'][0].layers['<items>'][l]
      if (ARTBOARDS_TO_EXPORT.length == 0 || ARTBOARDS_TO_EXPORT.indexOf(CURRENT_ARTBOARD) > -1)
      {
         artBoardData = parseArtBoard(layers[l]);
@@ -279,16 +271,14 @@ function parseChildrenNodes(arrObj, pater)
 
     switch (type) {
       case 'g':
-        obj = parseGroupNodeInfo(data)
+        obj = parseGroupNodeInfo(data, pater.id)
 
         break;
 
       case 'rect' :
-
         obj.type = 'layer'
         obj.id = data.attr.id;
         obj.frame = getNodeFrameFromAttr(data.attr)
-
         obj.backgroundColor = data.attr.fill || pater.attr.fill ;
 
         break;
@@ -311,7 +301,7 @@ function parseChildrenNodes(arrObj, pater)
 
       case 'text' :
 
-        obj = parseTextInfoFromJSON(data.attr.id, CURRENT_ARTBOARD)
+        obj = parseTextInfoFromJSON(data.attr.id, CURRENT_ARTBOARD, pater.id)
         obj.type = 'text'
         obj.id = data.attr.id;
         data.children = null;
@@ -336,7 +326,7 @@ function parseChildrenNodes(arrObj, pater)
 
     if (obj)
     {
-      obj.fx = getSpecialFiltersFromLayer(data, obj.type)
+      obj.fx = getSpecialFiltersFromLayer(data, obj.type, pater.id)
     }
 
     if (obj) children.push(obj)
@@ -345,19 +335,56 @@ function parseChildrenNodes(arrObj, pater)
   return children;
 }
 
-
-function getSpecialFiltersFromLayer(data, layerType)
+function findNode(nodeId, paterId)
 {
+
+
+  var query = "$..*[?(@.name=='"+nodeId+"')]"
+  var res = JSONPath.query(CURRENT_ARTBOARD_JSON, query);
+
+  if (!res.length)
+  {
+    var errorMsg ="NODE NOT FOUND! " + nodeId + " on " +paterId
+    throw new Error(errorMsg);
+  }
+  var node = null;
+
+  if (res.length>1)
+  {
+    // console.log(CURRENT_ARTBOARD + " : " + dId + " ?= " + paterId);
+    var pquery = "$..*[?(@.name=='"+paterId+"')]"
+    var parentres = JSONPath.nodes(CURRENT_ARTBOARD_JSON, pquery);
+    for (var r in parentres)
+    {
+      if (parentres[r].value.name==paterId)
+      {
+        var sublayerRes = JSONPath.query(parentres[r].value, query)
+        node = sublayerRes[0]
+        break;
+      }
+    }
+
+
+  }  else {
+      node = res[0];
+  }
+
+
+  return node;
+}
+
+
+function getSpecialFiltersFromLayer(data, layerType, paterId)
+{
+
   var dId = data.attr.id
   if (dId == undefined) return null;
 
   dId = desanitize(dId)
 
   var fx = {}
+  var res = findNode(dId, paterId)
 
-  var jsonContentRoot = ORIGINAL_JSON.pages['<items>'][0].layers['<items>'][0];
-  var query = "$..*[?(@.name=='"+dId+"')]"
-  var res = JSONPath.query(ORIGINAL_JSON, query)[0];
 
   // borderOptions: [?]
   // contextSettings [x]
@@ -371,7 +398,6 @@ function getSpecialFiltersFromLayer(data, layerType)
   // shadows [x]
   // blur [X]
   var tmpInfo;
-
 
   // console.log(res.style);
 
@@ -487,7 +513,7 @@ function getSpecialFiltersFromLayer(data, layerType)
           ,position       : tmpInfo[bi].position
           ,radius     : data.attr.rx
         }
-        
+
         borders.push(borderObj)
       }
       fx['borders'] = borders
@@ -498,13 +524,10 @@ function getSpecialFiltersFromLayer(data, layerType)
 
 
 
-function parseTextInfoFromJSON(nodeId, artboardId) {
+function parseTextInfoFromJSON(nodeId, artboardId, paterId) {
 
   var dId = desanitize(nodeId)
-
-  var jsonContentRoot = ORIGINAL_JSON.pages['<items>'][0].layers['<items>'][0];
-  var query = "$..*[?(@.name=='"+dId+"')]"
-  var res = JSONPath.query(ORIGINAL_JSON, query)[0];
+  var res = findNode(dId, paterId);
 
   paterObj = {}
 
@@ -568,7 +591,7 @@ function parseImageFromSVG(data)
 
 
 
-function parseGroupNodeInfo(group)
+function parseGroupNodeInfo(group, paterId)
 {
 
   var groupId = desanitize(group.attr.id);
@@ -577,9 +600,7 @@ function parseGroupNodeInfo(group)
   obj.id = groupId;
   obj.type = 'layer';
 
-  var query = "$..*[?(@.name=='"+groupId+"')]"
-  var jsonContentRoot = ORIGINAL_JSON.pages['<items>'][0].layers['<items>'][0];
-  var res = JSONPath.query(ORIGINAL_JSON, query)[0];
+  var res = findNode(groupId, paterId);
 
   obj.attr = group.attr;
 
