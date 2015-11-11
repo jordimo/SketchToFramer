@@ -22,3 +22,12 @@ class exports.ActivityCard extends Layer
     #
     # @title_txt.html = "Change The Title"
     # ^ will change the copy on title_txt layer
+
+
+    @title_txt.on Events.Click, ->
+      @html = Utils.randomChoice [
+        "Save Rock Creek Park Trees",
+        "Pick up river garbage",
+        "Tennis classes for kids",
+        "Museum visit for kids"
+      ]
