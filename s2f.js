@@ -191,17 +191,12 @@ function saveAndCleanFiles(outJSON)
 
 function parsePage(pageData)
 {
-  // we need to get ArtBoards from Layers
-
   var artboards_arr = [];
-
   var layers = getChildrenLayers(pageData);
-
   var artboards_arr = {};
 
   for (var l in layers)
   {
-      // ONLY PARSE MSArtboardGroup
      if (layers[l]['<class>']!='MSArtboardGroup') continue
 
      CURRENT_ARTBOARD = layers[l].name;
@@ -225,7 +220,6 @@ function parseArtBoard(data) {
 
   artBoardData.id = data.name;
   artBoardData.frame = parseFrame(data.frame)
-  // force artboards to have origin 0, 0
   artBoardData.frame.x = artBoardData.frame.y = 0
 
   if (data.hasBackgroundColor) {
@@ -317,8 +311,6 @@ function parseChildrenNodes(arrObj, pater)
     {
       obj.mask = parseMaskForElement(data)
     }
-
-
 
     if (data.children) {
       obj.children = parseChildrenNodes(data.children, obj);

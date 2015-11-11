@@ -1,5 +1,18 @@
+# SketchToFramer
 
-# Description
+A node based app and a Framer module to recreate Sketch artboards in code.
+
+## Installation
+
+* Download the the project on your computer
+* Install the dependencies
+```
+npm install
+```
+
+
+## Description
+
 
 SketchToFramer consists of two parts:
 
