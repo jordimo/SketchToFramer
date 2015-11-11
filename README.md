@@ -16,7 +16,7 @@ npm install
 
 SketchToFramer consists of two parts:
 
-* **s2f.js* is a node app that will convert Sketch files into a JSON file and png files
+* **s2f.js** is a node app that will convert Sketch files into a JSON file and png files
 
 * **SketchImporter.coffee** a Framer module that will read the generated JSON file and recreate the Sketch design in code
 
